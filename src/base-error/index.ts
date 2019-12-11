@@ -1,18 +1,18 @@
-export interface IBaseErrorDescription<E> {
-    type: E;
+export interface IBaseErrorDescription<T> {
+    type: T;
     message: string;
     payload?: any;
     fingerprint?: string;
     previousError?: Error;
 }
 
-export abstract class BaseError<E = string> extends Error {
+export abstract class BaseError<T = string> extends Error {
     name: string;
     payload: any;
-    type: E;
+    type: T;
     fingerprint: string;
 
-    constructor(errorDescription: IBaseErrorDescription<E>) {
+    constructor(errorDescription: IBaseErrorDescription<T>) {
         super(errorDescription.message);
         const { type, payload, fingerprint, previousError } = errorDescription;
 
