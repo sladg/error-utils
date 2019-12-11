@@ -1,5 +1,5 @@
-import { HttpError } from 'http-errors';
 import { BaseError } from '../base-error';
+import { HttpError } from '../http-errors';
 export interface IHttpError extends Error {
     code: number;
     type: string;
